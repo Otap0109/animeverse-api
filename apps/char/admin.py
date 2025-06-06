@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Character
 
-# Register your models here.
+@admin.register(Character)
+class CharactersAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role', 'franchise', 'age')
+    search_fields = ('name', 'role')
